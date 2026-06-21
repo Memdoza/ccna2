@@ -1,0 +1,137 @@
+ACCAMSUR.COM
+C1:
+config t
+vlan 3
+name accamsur.com
+exit
+Interface vlan 3
+ desc accamsur.com
+ no shut
+ ip add 10.0.1.1 255.255.255.0
+exit
+ip dhcp excluded-add 10.0.1.1 10.0.1.20
+ip dhcp pool accamsur.com
+ network 10.0.1.0 255.255.255.0
+domain-name accamsur.com
+dns-server 8.8.8.8
+ default-router 10.0.1.1
+end
+@A1
+config t
+int e0/0
+switchport mode access
+switchport access vlan 3
+end
+sh vlan brief
+@p1:
+config t
+int e0/0
+no ip address dhcp
+ip address dhcp
+no shut
+do bp
+ 
+
+accenturebsp
+C1:
+config t
+vlan 3
+name accamsur.com
+exit
+Interface vlan 3
+ desc accamsur.com
+ no shut
+ ip add 10.0.1.1 255.255.255.0
+exit
+ip dhcp excluded-add 10.0.1.1 10.0.1.20
+ip dhcp pool accamsur.com
+ network 10.0.1.0 255.255.255.0
+domain-name accamsur.com
+dns-server 8.8.8.8
+ default-router 10.0.1.1
+end
+@A1
+config t
+int e0/0
+switchport mode access
+switchport access vlan 3
+end
+sh vlan brief
+@p1:
+config t
+int e0/0
+no ip address dhcp
+ip address dhcp
+no shut
+do bp
+
+FOR ACCENTURE BSP.COM
+
+@C1:
+config t
+vlan 4
+name ACCENTUREBSP.COM
+exit
+Interface vlan 4
+ desc ACCENTUREBSP.COM
+ no shut
+ ip add 10.0.0.33 255.255.255.224
+exit
+ip dhcp excluded-add 10.0.0.33 10.0.0.35
+ip dhcp pool ACCENTUREBSP.COM
+ network 10.0.0.32 255.255.255.224
+domain-name ACCENTUREBSP.COM
+dns-server 8.8.8.8
+ default-router 10.0.0.33
+end
+@A2
+config t
+int e1/0
+switchport mode access
+switchport access vlan 4
+end
+sh vlan brief
+@p2:
+config t
+int e1/0
+no ip address dhcp
+ip address dhcp
+no shut
+do bp
+
+
+
+
+FOR ACCENTURESG.COM
+
+@C1:
+config t
+vlan 6
+name ACCENTURESG.COM
+exit
+Interface vlan 6
+ desc ACCENTURESG.COM
+ no shut
+ ip add 10.0.4.0 255.255.252.0
+exit
+ip dhcp excluded-add 10.0.4.1 10.0.0.80
+ip dhcp pool ACCENTURESG.COM
+ network 10.0.0.32 255.255.252.0
+domain-name ACCENTURESG.COM
+dns-server 8.8.8.8
+ default-router 10.0.4.1
+end
+@c2
+config t
+int e1/0
+switchport mode access
+switchport access vlan 6
+end
+sh vlan brief
+@s2:
+config t
+int e1/0
+no ip address dhcp
+ip address dhcp
+no shut
+do bp
