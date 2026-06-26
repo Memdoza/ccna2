@@ -4,7 +4,7 @@ of all skills:
 - switch: 
 - cucm:
 - edge:
-
+checked
 Task2: What 3 Letters that will make
        your HR file/resume = promoted/
        pirated
